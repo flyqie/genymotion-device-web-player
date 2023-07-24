@@ -564,8 +564,8 @@ module.exports = class DeviceRenderer {
                     this.dispatchEvent('video', {msg: 'play automatically allowed without sound'});
                     const popup = document.createElement('div');
                     popup.classList.add('gm-click-to-unmute');
-                    popup.innerHTML = 'By default, the sound has been turned off, '
-                        + 'please click anywhere to re-enable audio';
+                    popup.innerHTML = this.options.i18n.UNMUTE_INVITE || 'By default, the sound has been turned off, '
+                        + 'please click to re-enable audio';
                     this.videoWrapper.prepend(popup);
                     const addSound = () => {
                         this.video.muted = false;
