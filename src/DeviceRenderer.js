@@ -577,6 +577,8 @@ module.exports = class DeviceRenderer {
                     };
                     this.video.addEventListener('click', addSound);
                     this.video.addEventListener('touchend', addSound);
+                    popup.addEventListener('click', addSound);
+                    popup.addEventListener('touchend', addSound);
                 }).catch(() => {
                     log.debug('Can\'t play video, even with sound disabled');
                     this.dispatchEvent('video', {msg: 'play denied even without sound'});
