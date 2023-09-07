@@ -28,8 +28,6 @@ module.exports = class MediaManager {
         this.videoWidth = videoWidth;
         this.videoHeight = videoHeight;
         this.videoWithMicrophone = videoWithMicrophone;
-
-        this.setupPermissions();
     }
 
     /**
