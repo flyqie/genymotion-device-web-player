@@ -310,7 +310,7 @@ module.exports = class MediaManager {
      */
     removeVideoStream(stream) {
         if (!this.instance.peerConnection) {
-            log.error('Could not add video stream: connection is not ready');
+            log.error('Could not remove video stream: connection is not ready');
             return;
         }
         if (stream instanceof MediaStream) {
@@ -331,7 +331,11 @@ module.exports = class MediaManager {
      * Stop the audio & video streaming
      */
     disconnect() {
-        this.stopAudioStreaming();
-        this.stopVideoStreaming();
+        if (this.audioStreaming) {
+            this.stopAudioStreaming();
+        }
+        if (this.videoStreaming) {
+            this.stopVideoStreaming();
+        }
     }
 };
