@@ -230,7 +230,7 @@ module.exports = class MediaManager {
                     stream);
             }
         }
-        this.renegotiateWebRTCConnection();
+        this.instance.renegotiateWebRTCConnection();
     }
 
     /**
@@ -273,7 +273,7 @@ module.exports = class MediaManager {
                     stream);
             }
         }
-        this.renegotiateWebRTCConnection();
+        this.instance.renegotiateWebRTCConnection();
     }
 
     /**
