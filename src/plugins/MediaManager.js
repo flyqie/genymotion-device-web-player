@@ -156,7 +156,7 @@ module.exports = class MediaManager {
      */
     stopVideoStreaming() {
         log.debug('removed local video stream');
-        this.instance.removeVideoStream(this.localVideoStream);
+        this.removeVideoStream(this.localVideoStream);
         this.localVideoStream = null;
         this.videoStreaming = false;
     }
@@ -166,7 +166,7 @@ module.exports = class MediaManager {
      */
     stopAudioStreaming() {
         log.debug('removed local audio stream');
-        this.instance.removeAudioStream(this.localAudioStream);
+        this.removeAudioStream(this.localAudioStream);
         this.localAudioStream = null;
         this.audioStreaming = false;
     }
