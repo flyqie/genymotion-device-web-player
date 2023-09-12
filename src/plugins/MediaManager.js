@@ -45,7 +45,7 @@ module.exports = class MediaManager {
                 permissionObj.addEventListener('change', this.onMicrophonePermissionChange.bind(this));
             })
             .catch((error) => {
-                this.onAudioStreamError(error);
+                log.debug('Can\'t get microphone permission object', error);
             });
 
         navigator.permissions.query({name: 'camera'})
@@ -54,7 +54,7 @@ module.exports = class MediaManager {
                 permissionObj.addEventListener('change', this.onCameraPermissionChange.bind(this));
             })
             .catch((error) => {
-                this.onVideoStreamError(error);
+                log.debug('Can\'t get camera permission object', error);
             });
 
         return true;
