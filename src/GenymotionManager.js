@@ -86,6 +86,7 @@ module.exports = class GenymotionManager {
         this.instances = [];
         /* global GEN_TEMPLATES */
         this.templates = GEN_TEMPLATES;
+        console.log("Beta démo");
     }
 
     /**
