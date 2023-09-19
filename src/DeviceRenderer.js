@@ -575,10 +575,8 @@ module.exports = class DeviceRenderer {
                         popup.remove();
                         log.debug('Playing video with sound enabled has been authorized due to user click');
                     };
-                    this.video.addEventListener('click', addSound);
-                    this.video.addEventListener('touchend', addSound);
-                    popup.addEventListener('click', addSound);
-                    popup.addEventListener('touchend', addSound);
+                    window.addEventListener('click', addSound, {once:true});
+                    this.video.addEventListener('touchend', addSound, {once:true});
                 }).catch(() => {
                     log.debug('Can\'t play video, even with sound disabled');
                     this.dispatchEvent('video', {msg: 'play denied even without sound'});
