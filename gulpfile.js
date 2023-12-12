@@ -185,9 +185,9 @@ gulp.task('watch', gulp.series('build', function() {
         PATHS.SRC.ASSETS.STYLES + '/**/*.scss'
     ], gulp.series('app-styles'));
 
-    gulp.watch([
-        PATHS.TEST.UT + '/**/*.js'
-    ], gulp.series('test'));
+    // gulp.watch([
+    //     PATHS.TEST.UT + '/**/*.js'
+    // ], gulp.series('test'));
 
     gulp.watch([
         PATHS.SRC.BASE + '/*.js',

@@ -172,6 +172,7 @@ module.exports = class GenymotionInstance {
             this.reconnecting = true;
         }
 
+        console.log('Opening WebRTC connection', this.options.webRTCUrl);
         this.webRTCWebsocket = new WebSocket(this.options.webRTCUrl);
         this.webRTCWebsocket.onopen = this.sendAuthenticationToken.bind(this);
         this.webRTCWebsocket.onmessage = this.onWebSocketMessage.bind(this);
@@ -752,6 +753,7 @@ module.exports = class GenymotionInstance {
      * @param {Object} data Message payload.
      */
     handleMessage(data) {
+        //console.log('TODO**************************************************', data);
         if (data.type === 'USERS') {
             if (data.code === 'SUCCESS') {
                 this.dispatchEvent('userListUpdated', {msg: data.message});

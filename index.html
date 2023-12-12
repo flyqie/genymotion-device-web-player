@@ -1,0 +1,44 @@
+<script
+  type="text/javascript"
+  src="./dist/js/gm-player.min.js"
+></script>
+
+<html>
+  <head>
+    <title>Genymotion Device Web Player</title>
+    <link
+      rel="stylesheet"
+      href="./dist/css/gm-player.min.css"
+    />
+  </head>
+  <body>
+    <div id="genymotion"></div>
+  </body>
+</html>
+
+<script>
+  // Instance address
+  const webrtcAddress = "wss://ns3110852-vds-staging.genymotion.com/40000";
+  const container = document.getElementById("genymotion");
+
+  // See "Features & options" section for more details about options
+  const options = {
+    template: "player", // template defines how player is displayed
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW55aWQiOiJjYmIxYTg0My1lMWQyLTRjMjMtYWQ2MS00YjJhNGJiNjBjZTYiLCJvcmdhbml6YXRpb24iOnsiZ2VueWlkIjoiMGZlN2Q2MGItOWIyYy00NjI2LWIyN2YtMTIxM2UyYTRmNGVjIn0sImVtYWlsIjoianBhcmV6QGdlbnltb2JpbGUuY29tIiwiYWN0aXZhdGVkIjp0cnVlLCJleHAiOjE3MDA4NDA3ODUsImp0aSI6ImU4ZDMxNmYyLTAwOWUtNDYzYi05Mjc3LTVlZTBjNjdlYTI5MCIsImlzX3N0YWZmIjpmYWxzZSwiaXNfc3VwZXJ1c2VyIjpmYWxzZSwicm9sZSI6IkRFVk9QUyJ9.g3PUnEHQ9Rf61Pw_eamwMqOgHotskOTpgmggH3LZLJg",
+    fileUpload: false, // requires fileUploadUrl
+  };
+
+  // Device player instanciation
+  console.log(GenymotionManager);
+  const genymotion = new GenymotionManager();
+  const instance = genymotion.setupInstance(
+    container, // the container element or element ID to use
+    webrtcAddress, // the websocket address of your instance connector
+    options // options object to enable or disable features
+  );
+
+  // Disconnect the device player, closing any open data channels.
+  window.addEventListener("beforeunload", function () {
+    instance.disconnect();
+  });
+</script>

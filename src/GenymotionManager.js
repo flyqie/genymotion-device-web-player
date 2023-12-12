@@ -23,6 +23,7 @@ const Phone = require('./plugins/Phone');
 const BasebandRIL = require('./plugins/BasebandRIL');
 const StreamResolution = require('./plugins/StreamResolution');
 const IOThrottling = require('./plugins/IOThrottling');
+const FingerPrint = require('./plugins/FingerPrint');
 
 const log = require('loglevel');
 log.setDefaultLevel('debug');
@@ -202,6 +203,7 @@ module.exports = class GenymotionManager {
         this.instances.push(instance);
 
         const pluginInitMap = [
+            {enabled: true /* TODO depending on android version*/, class: FingerPrint, params: [options.i18n]},
             {enabled: options.touch || options.mouse, class: CoordinateUtils},
             {enabled: options.mouse, class: MouseEvents},
             {enabled: options.touch, class: MultiTouchEvents},

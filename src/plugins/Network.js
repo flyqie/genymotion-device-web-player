@@ -534,6 +534,7 @@ module.exports = class Network extends OverlayPlugin {
      * @param {string} id Profile id.
      */
     setActiveProfile(id) {
+        console.log('setActiveProfile-*******************************************');
         const profile = PROFILES.find((elem) => elem.id === Number(id));
         if (!profile || !String(id).length) {
             return;
